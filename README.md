@@ -27,6 +27,8 @@ var hg = new HGrid(width,mult);
 ```
 The first one is 'width'. It is the smallest grid cell's size. It should be chosen as small as possible, but slightly greater than the size of most of extents you insert into the grid.
 If 90% of your extents sizes are below 10, but some has greater size, you can try 10 as 'width'.
+If you use point-like extents ([x,y,x,y]), choose 'width' as big as possible but so that the probability of two extents are closer than 'width' is small enough.
+In any case, you should try different values and benchmark to find the optimal value.
 Size of the extent [x0,y0,x1,y1] is Max(x1-x0,y1-y1).
 Default value for parameter 'width' is 1.
 
@@ -49,6 +51,9 @@ hg.insert(extent1); // inserts extent1
 hg.insert(extent1); // does nothing!
 hg.insert(extent2); // inserts extent2
 ```
+You must remember that you should not mutate spatial properties(extent[0] - extent[3]) of extent while it is inside any HGrid.
+To move extent, first you need to remove it from HGrid. After changing spatial properties, add it to the HGrid again.
+Notice that you can change any other (non-spatial) properties without removing the extent.
 
 ### Remove
 To remove extent from the grid, use 'remove' function:
@@ -62,6 +67,18 @@ var extent4 = [1,2,3,4];
 hg.insert(extent3);
 hg.remove(extent4); // does nothing!
 hg.remove(extent3); // removes extent3
+```
+
+### Check existence
+You can check whether extent has been added to the grid with 'has' method. Again, it uses identity to check equality:
+```js
+var extent1 = [1,2,3,4];
+var extent2 = [1,2,3,4];
+hg.insert(extent1);
+console.log(hg.has(extent1)); // true
+console.log(hg.has(extent2)); // false
+hg.remove(extent1);
+console.log(hg.has(extent1)); // false
 ```
 
 ### Search

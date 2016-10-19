@@ -60,6 +60,11 @@ define(function (require, exports, module) {
 		return true;
 	};
 
+	HGrid.prototype.has = function(extent) {
+		var data = this._makeExtentData(extent);
+		return data.values != null && data.values.indexOf(extent) != -1;
+	};
+
 	HGrid.prototype.search = function(extent) {
 		var result = [];
 		for(var ip=0; ip < this._powers.length; ++ip) {
