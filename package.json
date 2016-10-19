@@ -1,0 +1,33 @@
+{
+  "author": {
+    "name": "Sergey Fedotov"
+  },
+  "dependencies": {},
+  "description": "Hashed 2D spatial multilevel grid for search queries.",
+  "devDependencies": {},
+  "directories": {},
+  "keywords": [
+    "spatial",
+    "2d",
+    "search",
+    "hgrid",
+    "rectangle",
+    "index",
+    "math",
+    "hash"
+  ],
+  "license": "WTFPL",
+  "main": "hgrid.js",
+  "maintainers": [
+    {
+      "email": "sergeyfromhell@gmail.com",
+      "name": "sergeyfromhell"
+    }
+  ],
+  "name": "hgrid",
+  "optionalDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
+}
