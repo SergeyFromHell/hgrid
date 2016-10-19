@@ -25,9 +25,12 @@ var width = 0.1;
 var mult = 2;
 var hg = new HGrid(width,mult);
 ```
-The first one is 'width'. It is the smallest grid cell's size. It should be chosen as small as possible, but slightly greater than the size of most of extents you insert into the grid.
-If 90% of your extents sizes are below 10, but some has greater size, you can try 10 as 'width'.
-If you use point-like extents ([x,y,x,y]), choose 'width' as big as possible but so that the probability of two extents are closer than 'width' is small enough.
+The first one is 'width'. It is the smallest grid cell's size.
+It directly affects search speed. When you search for extents in some rectangle area, i.e. [x0,y0,x1,y1], all cells intersecting that area (even thoose not containing extents) are beign checked.
+So if cell's size is very small, search performance degrage.
+On the other hand, if cell size is very big, there will be uneven distribution of extents to cells 
+(for example, all extents will fall into single cell). So you must balance between that edge cases.
+General recomendation is to choose 'width' as big as possible but so that the probability of two extents are closer than 'width' (they fall into single cell) is small enough.
 In any case, you should try different values and benchmark to find the optimal value.
 Size of the extent [x0,y0,x1,y1] is Max(x1-x0,y1-y1).
 Default value for parameter 'width' is 1.
