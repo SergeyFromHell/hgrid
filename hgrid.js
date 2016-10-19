@@ -18,7 +18,7 @@ define(function (require, exports, module) {
 	};
 
 	var boxesIsIntersecting = function(box1,box2) {
-		return box1[0] < box2[2] && box1[2] > box2[0] && box1[1] < box2[3] && box1[3] > box2[1];
+		return box1[0] <= box2[2] && box1[2] >= box2[0] && box1[1] <= box2[3] && box1[3] >= box2[1];
 	};
 
 	var HGrid = function(width,mult) {

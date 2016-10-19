@@ -43,7 +43,7 @@ To insert extent into the grid, use 'insert' function:
 hg.insert(extent);
 ```
 If you insert the extent, that has already been inserted, nothing happens (no duplicates alowed).
-The equality of extents is determined by their identity. I.e. you can insert different extents with same properties.
+**The equality of extents is determined by their identity**. I.e. you can insert different extents with same properties.
 ```js
 var extent1 = [1,2,3,4];
 var extent2 = [1,2,3,4];
@@ -87,7 +87,7 @@ You can use 'search' to find extents intersecting with given one:
 var r = hg.search([0,0,10,20]);
 ```
 Return value of 'search' is always an Array. If none of the intersecting extents is found, it returns empty array.
-When determining the fact of intersection of extents, the bottom and left edges considered inclusive, and the top and right are exclusive.
+**When determining the fact of intersection of extents, all edges are considered inclusive.**
 
 ### Clear
 You can clear the grid (remove all inserted extents) by 'clear':
