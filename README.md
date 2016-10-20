@@ -1,6 +1,6 @@
 ## hgrid
 
-A small-sized simplistic JavaScript library for 2d spatial search of axis-aligned rectangle objects(extents).
+A small-sized simplistic JavaScript library for 2d spatial search of axis-aligned rectangle objects (extents).
 
 ## Usage
 
@@ -54,7 +54,7 @@ hg.insert(extent1); // inserts extent1
 hg.insert(extent1); // does nothing!
 hg.insert(extent2); // inserts extent2
 ```
-You must remember that you should not mutate spatial properties(extent[0] - extent[3]) of extent while it is inside any HGrid.
+You must remember that you should not mutate spatial properties (extent[0] - extent[3]) of extent while it is inside any HGrid.
 To move extent, first you need to remove it from HGrid. After changing spatial properties, add it to the HGrid again.
 Notice that you can change any other (non-spatial) properties without removing the extent.
 
