@@ -1,10 +1,12 @@
-if (typeof exports === 'object' && typeof exports.nodeName !== 'string' && typeof define !== 'function') {
-    var define = function (factory) {
-        factory(require, exports, module);
-    };
-}
-
-define(function (require, exports, module) {
+(function(root, factory) {
+	if(typeof define === 'function' && define.amd) {
+		define([], factory);
+	} else if(typeof module === 'object' && module.exports) {
+		module.exports = factory();
+	} else {
+		root.HGrid = factory();
+	}
+}(this,function () {
 	var makeCellIndex = function(x,y,width) {
 		return [Math.floor(x/width),Math.floor(y/width)];
 	};
@@ -138,5 +140,5 @@ define(function (require, exports, module) {
 		};
 	};
 
-	exports = module.exports = HGrid;
-});
+	return HGrid;
+}));
